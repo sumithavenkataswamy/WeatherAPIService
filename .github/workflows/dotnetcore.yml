@@ -42,16 +42,16 @@ jobs:
         if: github.event_name != 'pull_request'
         run: |
           docker build \
-          -t ghcr.io/${{ env.actor }}/weather-service-api:${{ env.BUILD_VERSION }} \
-          -t ghcr.io/${{ env.actor }}/weather-service-api:latest \
+          -t ghcr.io/${{ github.actor }}/weather-service-api:${{ env.BUILD_VERSION }} \
+          -t ghcr.io/${{ github.actor }}/weather-service-api:latest \
           .
 
       # Step 6: Push Docker images to GitHub Container Registry
       - name: Push Docker images
         if: github.event_name != 'pull_request'
         run: |
-          docker push ghcr.io/${{ env.actor }}/weather-service-api:${{ env.BUILD_VERSION }}
-          docker push ghcr.io/${{ env.actor }}/weather-service-api:latest
+          docker push ghcr.io/${{ github.actor }}/weather-service-api:${{ env.BUILD_VERSION }}
+          docker push ghcr.io/${{ github.actor }}/weather-service-api:latest
 
   # Deploy to Development Environment
   deploy-dev:
