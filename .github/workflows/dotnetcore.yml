@@ -35,7 +35,7 @@ jobs:
 
       # Step 4: Log in to GitHub Container Registry
       - name: Log in to GitHub Container Registry
-        run: echo "${{ secrets.TOKEN }}" | docker login ghcr.io -u ${{ env.actor }} --password-stdin
+        run: echo "${{ secrets.TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       # Step 5: Build Docker image with Build Version
       - name: Build Docker image
