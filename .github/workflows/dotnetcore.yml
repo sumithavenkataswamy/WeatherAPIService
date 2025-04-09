@@ -76,7 +76,7 @@ jobs:
           az containerapp update \
           --name ${{ secrets.CONTAINER_APP }} \
           --resource-group ${{ secrets.RESOURCE_GROUP }} \
-          --image ghcr.io/ramadosse2313/weather-service-api:${{ needs.build-and-publish.outputs.build_version }} \
+          --image ghcr.io/sumithavenkataswamy/weather-service-api:${{ needs.build-and-publish.outputs.build_version }} \
           --set registries="ghcr.io=${{ secrets.GHCR_USERNAME }}=${{ secrets.TOKEN }}"
 
   deploy-test:
@@ -101,7 +101,7 @@ jobs:
           az containerapp update \
           --name ${{ secrets.CONTAINER_APP }} \
           --resource-group ${{ secrets.RESOURCE_GROUP }} \
-          --image ghcr.io/ramadosse2313/weather-service-api:${{ needs.build-and-publish.outputs.build_version }} \
+          --image ghcr.io/sumithavenkataswamy/weather-service-api:${{ needs.build-and-publish.outputs.build_version }} \
           --set registries="ghcr.io=${{ secrets.GHCR_USERNAME }}=${{ secrets.TOKEN }}"
 
   deploy-prod:
@@ -126,5 +126,5 @@ jobs:
           az containerapp update \
           --name ${{ secrets.CONTAINER_APP }} \
           --resource-group ${{ secrets.RESOURCE_GROUP }} \
-          --image ghcr.io/ramadosse2313/weather-service-api:${{ needs.build-and-publish.outputs.build_version }} \
+          --image ghcr.io/sumithavenkataswamy/weather-service-api:${{ needs.build-and-publish.outputs.build_version }} \
           --set registries="ghcr.io=${{ secrets.GHCR_USERNAME }}=${{ secrets.TOKEN }}"
